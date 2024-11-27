@@ -9,7 +9,10 @@
         <div class="col-12 col-sm-6">
             <h1>{{produto.nome}}</h1>
             <p>
-                {{produto.descricao}}
+                <strong>Categoria: {{produto.categoria}}</strong>
+            </p>
+            <p>
+                <strong>Descrição: </strong> <br> {{produto.descricao}}
             </p>
             <p class="text-danger fs-3 fw-bold">R$ {{produto.preco}}</p>
             <p>Quantidade em estoque: {{produto.estoque}}</p>

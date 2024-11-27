@@ -30,10 +30,11 @@ def post_alterar_produto(
     request: Request, 
     id: int = Path(...),
     nome: str = Form(...),
+    categoria: str = Form(...),
     descricao: str = Form(...),
     estoque: int = Form(...),
     preco: float = Form(...)):
-    produto = ProdutoModel(id, nome, descricao, preco, estoque)
+    produto = ProdutoModel(id, nome, categoria, descricao, preco, estoque)
     if ProdutoRepo.alterar(produto):
         response = RedirectResponse("/admin", 303)
         adicionar_mensagem_sucesso(response, "Produto alterado com sucesso!")
@@ -55,10 +56,11 @@ def get_inserir_produto(request: Request):
 def post_inserir_produto(
     request: Request,
     nome: str = Form(...),
+    categoria: str = Form(...),
     descricao: str = Form(...),
     estoque: int = Form(...),
     preco: float = Form(...)):
-    produto = ProdutoModel(None, nome, descricao, preco, estoque)
+    produto = ProdutoModel(None, nome, categoria, descricao, preco, estoque)
     if ProdutoRepo.inserir(produto):
         response = RedirectResponse("/admin", 303)
         adicionar_mensagem_sucesso(response, "Produto inserido com sucesso!")

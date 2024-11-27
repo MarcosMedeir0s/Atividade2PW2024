@@ -12,6 +12,18 @@
     </div>
     <div class="col-12">
         <div class="form-floating mb-3">
+            <select class="form-select" name="categoria" id="categoria">
+                <option value="" {% if not produto.categoria %}selected{% endif %} disabled></option>
+                <option value="Vegetais" {% if produto.categoria=='Vegetais' %}selected{% endif %}>Vegetais</option>
+                <option value="Legumes" {% if produto.categoria=='Legumes' %}selected{% endif %}>Legumes</option>
+                <option value="Frutas" {% if produto.categoria=='Frutas' %}selected{% endif %}>Frutas</option>
+                <option value="Carnes" {% if produto.categoria=='Carnes' %}selected{% endif %}>Carnes</option>
+            </select>
+            <label for="categoria">Categoria</label>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-floating mb-3">
             <textarea class="form-control h-120" placeholder=" " name="descricao" id="descricao">{{produto.descricao or ''}}</textarea>
             <label for="descricao">Descrição</label>
         </div>

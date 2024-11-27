@@ -12,6 +12,16 @@
     </div>
     <div class="col-12">
         <div class="form-floating mb-3">
+            <select class="form-select" name="categoria" id="categoria" placeholder="Selecione uma categoria">
+                <option value="Frutas" {% if produto.categoria == 'Frutas' %}selected{% endif %}>Frutas</option>
+                <option value="Legumes e Vegetais" {% if produto.categoria == 'Legumes e Vegetais' %}selected{% endif %}>
+                    Legumes e Vegetais</option>
+            </select>
+            <label for="categoria">Categoria</label>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-floating mb-3">
             <textarea class="form-control h-120" placeholder=" " name="descricao" id="descricao">{{produto.descricao}}</textarea>
             <label for="descricao">Descrição</label>
         </div>
